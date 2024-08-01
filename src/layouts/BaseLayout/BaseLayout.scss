@@ -1,0 +1,19 @@
+/** ====================
+ *  Base Layout css
+=======================*/
+.open_bar{
+    margin-inline-start: 200px;
+}
+.closed_bar{
+    margin-inline-start: 80px;
+}
+
+
+@media screen and (max-width: 768px){
+    .ant-layout-sider-collapsed{
+        inset-inline-start: -80px !important;
+    }
+    .closed_bar{
+        margin-inline-start: 0px;
+    }
+}

@@ -1,0 +1,44 @@
+/** ====================
+ *  Header css
+=======================*/
+.header-menu{
+    padding-top: 20px !important;
+    .choose-lang{
+        padding: 8px;
+        cursor: pointer;
+        color: var(--main_black);
+        margin-inline-start: 5px;
+        &:lang(en){
+            font-weight: 600;
+            font-family: "Tajawal", sans-serif;
+        }
+        &:lang(ar){
+            text-transform: capitalize;
+            font-family: "Poppins", sans-serif;
+        }
+    }
+    .nav-link{
+        padding: 8px 12px !important;
+        color: var(--main_black);
+        &:lang(ar){
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    .sign-up-btn{
+        color: #fff;
+        padding: 8px 16px !important;
+        border-radius: 6px;
+        margin-inline-start: 5px;
+        background-color: var(--btn_bg);
+        transition: 0.3s;
+        &:hover{
+            color: #fff;
+            background-color: var(--btn_hover_bg);
+        }
+        &.nav-link.active,
+        &.nav-link.show{
+            color: #fff !important;
+        }
+    }
+}
