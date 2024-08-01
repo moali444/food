@@ -1,0 +1,12 @@
+{
+    "home": "Home",
+    "login": "Login",
+    "login_text": "Welcome Back! Please enter your details",
+    "register": "Register",
+    "forgot_password": "Forgot Your Password?",
+    "forgot_password_text": "No worries! Please enter your email and we will send a password reset link",
+    "reset_password": " Reset  Password",
+    "reset_password_text": "Please Enter Your Otp  or Check Your Inbox",
+    "back_to_login": "Back to login",
+    "submit": "Submit"
+}
