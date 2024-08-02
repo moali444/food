@@ -3,7 +3,11 @@ import { LoginForm } from "@components/index";
 import { useTranslation } from "react-i18next";
 import "./Auth.scss";
 
-const Login = () => {
+interface LoginProps {
+  saveLoginData: (data: string) => void; 
+}
+
+const Login: React.FC<LoginProps> = ({ saveLoginData }) => {
   const { t } = useTranslation();
 
   return (
@@ -14,7 +18,7 @@ const Login = () => {
         title_text={t("login_text")}
         content={
             <div >
-                <LoginForm />
+                <LoginForm saveLoginData={saveLoginData} />
             </div>
         }
       />

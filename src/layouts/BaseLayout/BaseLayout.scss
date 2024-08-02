@@ -2,7 +2,12 @@
  *  Base Layout css
 =======================*/
 .open_bar{
-    margin-inline-start: 200px;
+    margin-inline-start: 250px;
+    .ant-layout-sider{
+        width: 250px !important;
+        min-width: 250px !important;
+        max-width: 250px !important;
+    }
 }
 .closed_bar{
     margin-inline-start: 80px;

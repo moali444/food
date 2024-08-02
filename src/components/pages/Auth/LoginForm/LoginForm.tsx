@@ -6,8 +6,6 @@ import axios, { AxiosError } from 'axios';
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { BiMobileAlt, BiLockAlt } from "react-icons/bi";
-import { useContext } from "react";
-import { AuthContext } from "src/context/AuthContext";
 import "./LoginForm.scss";
 
 interface SubmitButtonProps {
@@ -42,11 +40,13 @@ const SubmitButton: React.FC<React.PropsWithChildren<SubmitButtonProps>> = ({
   );
 };
 
-const LoginForm = () => {
+interface LoginFormProps {
+  saveLoginData: () => void;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ saveLoginData }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-
-  const {saveLoginData} = useContext(AuthContext);
 
   interface FieldType {
     email?: string;

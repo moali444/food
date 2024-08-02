@@ -5,6 +5,7 @@ import ForgetPasswordForm from "./pages/Auth/ForgetPasswordForm/ForgetPasswordFo
 import ResetPasswordForm from "./pages/Auth/ResetPasswordForm/ResetPasswordForm";
 import SideBar from "./shared/BaseShared/SideBar/SideBar";
 import LayoutHeader from "./shared/BaseShared/LayoutHeader/LayoutHeader";
+import PageBanner from "./shared/BaseShared/PageBanner/PageBanner";
 
 export{
     BannerSection,
@@ -14,4 +15,5 @@ export{
     ResetPasswordForm,
     SideBar,
     LayoutHeader,
+    PageBanner,
 }

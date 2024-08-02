@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import languageIcon from '../../../assets/images/svg/world-language.svg';
 

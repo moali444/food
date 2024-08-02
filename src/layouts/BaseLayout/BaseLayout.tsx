@@ -4,12 +4,11 @@ import { showLoader, hideLoader } from "../../redux/loaderSlice";
 import { Layout, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import MainLoader from "../../components/shared/Loaders/MainLoader";
-import "./BaseLayout.scss";
 import { LayoutHeader, SideBar } from "@components/index";
-
 const { Content, Footer } = Layout;
+import "./BaseLayout.scss";
 
-const BaseLayout = () => {
+const BaseLayout = ({ loginData }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -61,12 +60,12 @@ const BaseLayout = () => {
         <SideBar collapsed={collapsed} />
 
         <Layout>
-          <LayoutHeader setCollapsed={setCollapsed} collapsed={collapsed} />
+          <LayoutHeader setCollapsed={setCollapsed} collapsed={collapsed} loginData={loginData} />
           <Content style={{ margin: "24px 16px 0" }}>
             <div
               style={{
                 padding: 24,
-                minHeight: 360,
+                minHeight: '100%',
                 background: colorBgContainer,
                 borderRadius: borderRadiusLG,
               }}
@@ -76,12 +75,10 @@ const BaseLayout = () => {
           </Content>
 
           <Footer style={{ textAlign: "center" }}>
-            Ant Design ©{new Date().getFullYear()} Created by Ant UED
+           Design ©2024
           </Footer>
         </Layout>
       </Layout>
-
-      <Footer />
     </>
   );
 };
