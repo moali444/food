@@ -10,6 +10,8 @@ const IMAGES = {
   logoutIcon: new URL("./svg/menu/logout-icon.svg", import.meta.url).href,
   homeBanner: new URL("./svg/home-banner.svg", import.meta.url).href,
   usersBanner: new URL("./svg/users-banner.svg", import.meta.url).href,
+  logo2: new URL("./svg/logo2.svg", import.meta.url).href,
+  whiteBackArrow: new URL("./svg/white-back-arrow.svg", import.meta.url).href,
 };
 
 export default IMAGES;

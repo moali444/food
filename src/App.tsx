@@ -41,13 +41,13 @@ const App = () => {
     {
       path: "/",
       element: <AuthLayout />,
+      errorElement: <NotFound />,
       children: [
         { index: true, element: <Login saveLoginData={saveLoginData} /> },
         { path: "login", element: <Login saveLoginData={saveLoginData} /> },
         { path: "register", element: <Register /> },
         { path: "forget-pass", element: <ForgetPassword /> },
         { path: "reset-pass", element: <ResetPassword /> },
-        { path: "*", element: <NotFound /> },
       ],
     },
     {

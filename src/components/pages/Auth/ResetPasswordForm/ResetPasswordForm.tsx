@@ -68,7 +68,7 @@ const ResetPasswordForm: React.FC = () => {
       navigate("/login");
       //localStorage.setItem("userToken", response.data.data.accessToken);
       //saveLoginData();
-      toast.success('welcome back again');
+      toast.success(response?.data.message);
       console.log("Success:", response);
     } catch (error) {
       if (error instanceof AxiosError) {

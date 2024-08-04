@@ -56,7 +56,7 @@ const ForgetPasswordForm: React.FC = () => {
         data
       );
       navigate("/reset-pass");
-      toast.success('welcome back again');
+      toast.success(response?.data.message);
       console.log("Success:", response);
     } catch (error) {
       if (error instanceof AxiosError) {
