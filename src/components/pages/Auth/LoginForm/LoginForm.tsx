@@ -6,6 +6,7 @@ import axios, { AxiosError } from 'axios';
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { BiMobileAlt, BiLockAlt } from "react-icons/bi";
+import { USERS_URLS } from "src/constants/END_POINTS";
 import "./LoginForm.scss";
 
 interface SubmitButtonProps {
@@ -57,18 +58,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ saveLoginData }) => {
   const OnSubmit: FormProps<FieldType>["onFinish"] = async (data) => {
     console.log("Success:", data);
     try {
-      const response = await axios.post(
-        "https://upskilling-egypt.com:3006/api/v1/Users/Login",
-        data
-      );
+      const response = await axios.post(USERS_URLS.login,data);
       navigate("/dashboard");
       localStorage.setItem("userToken", response.data.token);
       saveLoginData();
-      toast.success('welcome back again');
+      toast.success(response?.data?.message || 'welcome back again');
       console.log("Success:", response);
     } catch (error) {
       if (error instanceof AxiosError) {
-        toast.error(error.response?.data.message, {
+        toast.error(error.response?.data?.message, {
           position: 'top-center',
         });
       }

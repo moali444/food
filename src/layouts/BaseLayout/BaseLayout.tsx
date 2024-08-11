@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { showLoader, hideLoader } from "../../redux/loaderSlice";
 import { Layout, theme } from "antd";
@@ -52,6 +53,30 @@ const BaseLayout = ({ loginData }) => {
     }
   }, [windowWidth]);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/dashboard":
+        document.title = "Home Page";
+        break;
+      case "/dashboard/home":
+        document.title = "Home Page";
+        break;
+      case "/dashboard/users":
+        document.title = "Users Page";
+        break;
+      case "/dashboard/recipes":
+        document.title = "Recipes Page";
+        break;
+      case "/dashboard/categories":
+        document.title = "Categories Page";
+        break;
+      default:
+        document.title = "Food App";
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <MainLoader />
@@ -60,12 +85,16 @@ const BaseLayout = ({ loginData }) => {
         <SideBar collapsed={collapsed} />
 
         <Layout>
-          <LayoutHeader setCollapsed={setCollapsed} collapsed={collapsed} loginData={loginData} />
+          <LayoutHeader
+            setCollapsed={setCollapsed}
+            collapsed={collapsed}
+            loginData={loginData}
+          />
           <Content style={{ margin: "24px 16px 0" }}>
             <div
               style={{
                 padding: 24,
-                minHeight: '100%',
+                minHeight: "100%",
                 background: colorBgContainer,
                 borderRadius: borderRadiusLG,
               }}
@@ -74,9 +103,7 @@ const BaseLayout = ({ loginData }) => {
             </div>
           </Content>
 
-          <Footer style={{ textAlign: "center" }}>
-           Design ©2024
-          </Footer>
+          <Footer style={{ textAlign: "center" }}>Design ©2024</Footer>
         </Layout>
       </Layout>
     </>

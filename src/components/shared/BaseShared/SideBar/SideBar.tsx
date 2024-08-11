@@ -1,7 +1,8 @@
 import { Layout, Menu } from "antd";
 import IMAGES from "@assets/images/images";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./SideBar.scss";
+import { useEffect, useState } from "react";
 
 const { Sider } = Layout;
 
@@ -10,8 +11,21 @@ interface Item {
 }
 
 const SideBar = ({ collapsed }: Item) => {
+  const location = useLocation();
   const navigate = useNavigate();
+  const [current, setCurrent] = useState(location.pathname)
 
+  useEffect(() => {
+    if (location) {
+      if (current !== location.pathname) {
+        setCurrent(location.pathname);
+      }
+    }
+  }, [location, current]);
+
+  function handleClick(e: any) {
+    setCurrent(e.key);
+  }
   const logout = () => {
     window.localStorage.clear();
     navigate("/login");
@@ -40,27 +54,28 @@ const SideBar = ({ collapsed }: Item) => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          onClick={handleClick}
+          //defaultSelectedKeys={["1"]}
           items={[
             {
-              key: "1",
+              key: "/dashboard",
               icon: <img src={IMAGES.homeIcon} alt="pic" />,
-              label: <Link to='/dashboard'>Home</Link>,
+              label: <Link to="/dashboard">Home</Link>,
             },
             {
-              key: "2",
+              key: "/dashboard/users",
               icon: <img src={IMAGES.usersIcon} alt="pic" />,
-              label: <Link to='/dashboard/users'>Users</Link>,
+              label: <Link to="/dashboard/users">Users</Link>,
             },
             {
-              key: "3",
+              key: "/dashboard/recipes",
               icon: <img src={IMAGES.recipesIcon} alt="pic" />,
-              label: <Link to='/dashboard/recipes'>Recipes</Link>,
+              label: <Link to="/dashboard/recipes">Recipes</Link>,
             },
             {
-              key: "4",
+              key: "4/dashboard/categories",
               icon: <img src={IMAGES.categoriesIcon} alt="pic" />,
-              label: <Link to='/dashboard/categories'>Categories</Link>,
+              label: <Link to="/dashboard/categories">Categories</Link>,
             },
             {
               key: "5",

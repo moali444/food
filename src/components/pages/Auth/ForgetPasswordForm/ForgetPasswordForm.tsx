@@ -6,6 +6,7 @@ import axios, { AxiosError } from 'axios';
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { BiMobileAlt } from "react-icons/bi";
+import { USERS_URLS } from "src/constants/END_POINTS";
 import "./ForgetPasswordForm.scss";
 
 interface SubmitButtonProps {
@@ -51,12 +52,9 @@ const ForgetPasswordForm: React.FC = () => {
   const OnSubmit: FormProps<FieldType>["onFinish"] = async (data) => {
     //console.log("Success:", data);
     try {
-      const response = await axios.post(
-        "https://upskilling-egypt.com:3006/api/v1/Users/Reset/Request",
-        data
-      );
+      const response = await axios.post(USERS_URLS.resetRequest,data);
       navigate("/reset-pass");
-      toast.success(response?.data.message);
+      toast.success(response?.data?.message || "plseae check your email");
       console.log("Success:", response);
     } catch (error) {
       if (error instanceof AxiosError) {

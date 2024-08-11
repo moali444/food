@@ -48,6 +48,7 @@ const App = () => {
         { path: "register", element: <Register /> },
         { path: "forget-pass", element: <ForgetPassword /> },
         { path: "reset-pass", element: <ResetPassword /> },
+        { path: "*", element: <NotFound /> },
       ],
     },
     {

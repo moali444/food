@@ -1,9 +1,11 @@
+import { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 
 
 interface Item {
-    loginData: string;
-    children: string;
+    
+    children: ReactElement;
+    loginData?: string;
 }
 function ProtectedRoute({loginData, children}: Item) {
   if(localStorage.getItem('userToken') || loginData) return children;

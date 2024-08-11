@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { BiMobileAlt, BiLockAlt } from "react-icons/bi";
 import OtpInput from "react-otp-input";
+import { USERS_URLS } from 'src/constants/END_POINTS';
 import "./ResetPasswordForm.scss";
 
 interface SubmitButtonProps {
@@ -61,18 +62,15 @@ const ResetPasswordForm: React.FC = () => {
   const OnSubmit: FormProps<FieldType>["onFinish"] = async (data) => {
     console.log("Success:", data);
     try {
-      const response = await axios.post(
-        "https://upskilling-egypt.com:3006/api/v1/Users/Reset",
-        data
-      );
+      const response = await axios.post(USERS_URLS.reset,data);
       navigate("/login");
       //localStorage.setItem("userToken", response.data.data.accessToken);
       //saveLoginData();
-      toast.success(response?.data.message);
+      toast.success(response?.data?.message ||  "password updated successfuly");
       console.log("Success:", response);
     } catch (error) {
       if (error instanceof AxiosError) {
-        toast.error(error.response?.data.message, {
+        toast.error(error.response?.data?.message, {
           position: 'top-center',
         });
       }

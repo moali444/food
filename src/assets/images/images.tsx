@@ -12,6 +12,11 @@ const IMAGES = {
   usersBanner: new URL("./svg/users-banner.svg", import.meta.url).href,
   logo2: new URL("./svg/logo2.svg", import.meta.url).href,
   whiteBackArrow: new URL("./svg/white-back-arrow.svg", import.meta.url).href,
+  headerCircles: new URL("./svg/header-circles.svg", import.meta.url).href,
+  deleteImg: new URL("./svg/delete-img.svg", import.meta.url).href,
+  editIcon: new URL("./svg/edit-icon.svg", import.meta.url).href,
+  deleteIcon: new URL("./svg/delete-icon.svg", import.meta.url).href,
+  whiteRightArrow: new URL("./svg/white-right-arrow.svg", import.meta.url).href,
 };
 
 export default IMAGES;
