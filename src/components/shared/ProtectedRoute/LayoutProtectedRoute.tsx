@@ -6,7 +6,7 @@ interface Item {
 }
 function LayoutProtectedRoute({ loginData, children }: Item) {
   if (!localStorage.getItem("userToken") || loginData) return children;
-  else return <Navigate to="/home" />;
+  else return <Navigate to="/dashboard" />;
 }
 
 export default LayoutProtectedRoute;

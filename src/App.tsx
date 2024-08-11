@@ -13,6 +13,7 @@ import Users from "./pages/Users/Users";
 import Recipes from "./pages/Recipes/Recipes";
 import Categories from "./pages/Categories/Categories";
 import ProtectedRoute from "@components/shared/ProtectedRoute/ProtectedRoute";
+import LayoutProtectedRoute from "@components/shared/ProtectedRoute/LayoutProtectedRoute";
 import NotFound from "./pages/NotFound/NotFound";
 
 //toastify
@@ -40,7 +41,10 @@ const App = () => {
   const routes = createBrowserRouter([
     {
       path: "/",
-      element: <AuthLayout />,
+      element:
+      <LayoutProtectedRoute>
+        <AuthLayout />
+      </LayoutProtectedRoute> ,
       errorElement: <NotFound />,
       children: [
         { index: true, element: <Login saveLoginData={saveLoginData} /> },
